@@ -23,7 +23,7 @@ This repository contains the code for a **Knowledge Graph-Based Movie Recommenda
 
 The system operates in several key phases:
 
-1.  **Data Ingestion & Preprocessing:** Movie data from various sources is collected, cleaned, and processed. This involves extracting relevant attributes and identifying unique entities.
+1.  **Data Ingestion & Preprocessing:** Movie data from various sources is collected, cleaned, and processed through**web scrapping**. This involves extracting relevant attributes and identifying unique entities.
 2.  **Knowledge Graph Creation:** Entities (e.g., "Movie," "Actor," "Director," "Genre") and their relationships (e.g., "ACTED\_IN," "DIRECTED," "HAS\_GENRE") are defined. The preprocessed data is then used to populate nodes and edges within a graph database (e.g., Neo4j).
 3.  **Recommendation Algorithm:**
       * **User Profiling:** User preferences are inferred from their watched movies, ratings, or explicit inputs.
