@@ -1,4 +1,4 @@
-# Knowledge-Graphs-Movie-Recommendation-System
+# 🚀 Knowledge-Graphs-Movie-Recommendation-System
 Enhance movie recommendations by utilizing knowledge graphs to capture complex relationships between movies and user preferences, providing personalized suggestions using NLP.
 
 -----
@@ -151,28 +151,19 @@ You can also explore the knowledge graph directly using the Neo4j Browser (usual
 ## Project Structure
 
 ```
-Knowledge-Graphs-Movie-Recommendation-System/
-├── .env                  # Environment variables (e.g., Neo4j credentials)
-├── requirements.txt      # Python dependencies
-├── README.md             # This README file
-├── data/                 # Raw and processed data files
-│   ├── raw/
-│   │   └── movies.csv
-│   │   └── credits.csv
-│   └── processed/
-│       └── processed_movies.csv
-├── data_processing/      # Scripts for data cleaning and preparation
-│   ├── clean_data.py
-│   └── prepare_for_graph.py
-├── graph_builder/        # Scripts for building and managing the Neo4j knowledge graph
-│   ├── build_graph.py    # Main script to ingest data into Neo4j
-│   └── neo4j_utils.py    # Helper functions for Neo4j connection
-├── recommendation_engine/# Core recommendation algorithms
-│   └── recommend.py      # Main script to run recommendations
-│   └── algorithms.py     # Recommendation logic (e.g., graph traversal, similarity)
-├── models/               # (Optional) Saved trained models if any ML component exists
-└── utils/                # Utility functions
-    └── logger.py
+KnowledgeGraph/
+├── data/                    # 📊 Where our movie ingredients live!
+│   ├── raw/                 # 🍚 Original, untouched data (like your MovieLens downloads)
+│   └── processed/           # 🧼 Cleaned and shiny data, ready for action!
+├── scripts/                 # 🐍 Our Python brainpower!
+│   ├── build_graph.py       # 🏗️ The main builder – creates and fills the graph
+│   ├── data_preprocessing.py# 🧹 Cleans up the raw data
+│   └── query_examples.py    # 💡 (Optional) How to ask the graph smart questions
+├── notebooks/               # 📓 Interactive playgrounds for testing
+│   ├── graph_construction.ipynb # 🚀 See the graph being built step-by-step
+│   └── kg_exploration.ipynb # 🗺️ Explore the finished graph!
+├── config.py                # ⚙️ Your settings for connecting to the database, etc.
+└── README.md                # 📖 You are here!
 ```
 
 *(This structure is an example and should be adjusted to match the actual repository content.)*
