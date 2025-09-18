@@ -150,3 +150,101 @@ Our amazing Knowledge Graph is built using:
 ## ❤️ Contribute\!
 
 Got ideas or want to make this brain even smarter? We'd love your help\! Please refer to the main project's `CONTRIBUTING.md` file in the root directory for guidelines.
+
+
+To generate a comprehensive README file for the provided Python script, I'll need to analyze the code and understand its purpose and functionality.
+
+Here's what the code does:
+
+1.  **Imports**: It imports necessary libraries like `BeautifulSoup` for web scraping, `requests` for making HTTP requests, `pandas` for data manipulation, and others.
+2.  **Global Lists**: It initializes several global lists to store scraped data: `title_list`, `year_list`, `duration_list`, `rated_list`, `actor_list`, `director_list`, `rating_list`, `genre_list`, and `comments_list`.
+3.  **`movie_scrapping` function**: This is the core function that performs the web scraping.
+      * It takes a URL and the global lists as arguments.
+      * It uses `requests` and `BeautifulSoup` to parse the HTML content of the IMDB page.
+      * **`fetch_movies`**: This nested function extracts movie titles, years, durations, and ratings from the main page. The logic for handling `year_rated_duration` seems a bit complex and might have some issues with the `try-except` block and the `while` loop.
+      * **`get_sublinks`**: This function gets the individual movie page URLs (sub-links).
+      * **Looping through sub-links**: It then iterates through each movie's sub-link to scrape more detailed information:
+          * **`actor_list`**: Scrapes the main actor's name.
+          * **`director_list`**: Scrapes the director's name.
+          * **`rating_list`**: Scrapes the user rating.
+          * **`genre_list`**: Scrapes the movie's genre.
+          * **`comments_list`**: Navigates to the movie's review page and scrapes the review titles.
+      * It handles `None` values by replacing them with `'na'`.
+      * Finally, it returns all the populated lists.
+4.  **Main Execution Block**:
+      * It constructs a specific URL for IMDB to search for movies with a user rating between 9 and 10.
+      * It calls the `movie_scrapping` function with this URL.
+      * The returned lists are appended to the global lists.
+      * There are commented-out sections of the code that suggest the script was intended to scrape a wider range of genres and ratings but is currently configured to run only for a specific rating range.
+5.  **Output**: The script as it is doesn't write the data to a file or display it in a structured way (like a DataFrame). The scraped data is stored in global lists, and the program simply ends.
+
+The README should clearly explain these points to a user. It should cover:
+
+  * What the script does (its purpose).
+  * What prerequisites are needed (libraries).
+  * How to install the prerequisites.
+  * How to run the script.
+  * A brief explanation of the code's structure and what data it scrapes.
+  * What to expect as output.
+  * A note on the commented-out code for future development.
+
+Based on this analysis, I will now create the README file.
+
+````markdown
+# IMDB Movie Scraper 🎬
+
+This Python script is a web scraper designed to extract movie data from the Internet Movie Database (IMDb). It navigates through movie search results and then scrapes detailed information for each movie, including its title, year, duration, rating, director, actors, genre, and user review titles.
+
+## ✨ Features
+
+- **Movie Information**: Scrapes essential details like movie titles, release years, and user ratings.
+- **Detailed Data**: Fetches in-depth information such as the director, main actor, and genre for each film.
+- **Review Titles**: Gathers a list of review titles from each movie's dedicated review page.
+- **Dynamic Scraping**: The code can be easily modified to scrape movies based on different search parameters (e.g., genre, rating range).
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+To run this script, you need to have Python installed on your system. You'll also need a few libraries, which you can install using `pip`.
+
+```bash
+pip install beautifulsoup4 requests pandas
+````
+
+  * `requests`: Used to make HTTP requests to the IMDB website.
+  * `beautifulsoup4`: A library for parsing HTML and XML documents.
+  * `pandas`: Used for data manipulation, although the current script stores data in lists, a `pandas` DataFrame would be a good next step for data organization.
+
+### How to Run
+
+1.  Save the code in a file named `imdb_scraper.py`.
+2.  Open your terminal or command prompt.
+3.  Navigate to the directory where you saved the file.
+4.  Run the script using the following command:
+
+<!-- end list -->
+
+```bash
+python imdb_scraper.py
+```
+
+## 📝 Script Overview
+
+The main functionality is encapsulated in the `movie_scrapping` function. It performs the following steps:
+
+1.  **Initial Scraping**: It first scrapes the main search results page to get a list of movie titles, years, durations, and content ratings.
+2.  **Sub-page Navigation**: It then extracts the unique URL for each movie and loops through them.
+3.  **Detailed Scraping**: For each movie's page, it scrapes the director, main actor, IMDB user rating, and genre.
+4.  **Review Scraping**: It constructs a new URL to visit the movie's reviews page and scrapes the titles of the top reviews.
+
+The scraped data is stored in various global lists (e.g., `title_list`, `director_list`). While the script currently runs and populates these lists, it doesn't output the data to a file or a more structured format like a CSV or Excel file. This is a potential area for future development.
+
+**Note**: The script is currently configured to scrape movies with a user rating between 9 and 10. The commented-out code shows how the script can be extended to scrape other genres or a wider range of ratings.
+
+## ⚠️ Disclaimer
+
+Web scraping can be a sensitive activity. Please be respectful of the website's terms of service and robots.txt file. This script is intended for educational purposes and personal use only. Excessive or rapid requests can lead to your IP being temporarily blocked. Adding delays between requests (e.g., using `time.sleep()`) is a good practice to prevent this.
+
+```
+```
